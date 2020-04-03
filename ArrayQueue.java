@@ -29,6 +29,7 @@ public class ArrayQueue<T> implements Queue
 	public void enqueue(Object item)
 	{
 		itemCount++;
+		//grow array if capacity is reached
 		if(itemCount == cap)
 		{
 			growArray();
@@ -44,8 +45,10 @@ public class ArrayQueue<T> implements Queue
 	private void growArray()
 	{
 		cap = cap * 2;
+		//create new object array of double capacity of current cap
 		Object[] temp = new Object[cap];
 		int count = 0;
+		//makes sure the new array is sorted properly
 		for(int i = top; i > arr.length; i++)
 		{
 			temp[count++] = arr[i];
@@ -55,6 +58,7 @@ public class ArrayQueue<T> implements Queue
 			temp[count++] = arr[i];
 		}
 
+		//set array to new array
 		arr = temp;
 	}
 }

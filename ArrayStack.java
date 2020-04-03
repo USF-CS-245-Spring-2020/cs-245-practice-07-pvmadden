@@ -41,12 +41,15 @@ public class ArrayStack<T> implements Stack
 	}
 	private void doubleArray()
 	{
+		//simple double array
 		cap = cap * 2;
 		Object[] temp = new Object[cap];
+		//copy contents of old array into temporary new one
 		for(int i = 0; i < top; i++)
 		{
 			temp[i] = arr[i];
 		}
+		//set arr to temp
 		arr = temp;
 	}
 }
